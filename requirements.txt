@@ -10,6 +10,7 @@ dl
 docutils
 filelock
 flask
+gunicorn
 h2
 HTMLParser
 ipython
