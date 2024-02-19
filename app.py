@@ -7,6 +7,7 @@ import cv2
 from spire.presentation.common import *
 from spire.presentation import *
 import subprocess
+import shutil
 import numpy as np
 import os
 
@@ -47,6 +48,11 @@ def index():
         if file.filename == '':
             return redirect(request.url)
         if file:
+            # Check if the Presentation folder exists, create it if it doesn't
+            presentation_folder = "Presentation"
+            if not os.path.exists(presentation_folder):
+                os.makedirs(presentation_folder)
+            
             # Save the uploaded PowerPoint file to the Presentation folder
             pptx_filename = secure_filename(file.filename)
             pptx_path = os.path.join("Presentation", pptx_filename)
@@ -176,12 +182,13 @@ def presentation():
 
         key = cv2.waitKey(1)
         if key == ord('q'):
+            shutil.rmtree("Presentation")
             break
 
     cap.release()
     cv2.destroyAllWindows()
 
-    return render_template("presentation.html")
+    return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

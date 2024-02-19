@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload PowerPoint</title>
-</head>
-<body>
-    <h1>Upload a PowerPoint Presentation</h1>
-    <form method="POST" enctype="multipart/form-data">
-        <input type="file" name="file">
-        <button type="submit">Upload</button>
-    </form>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Presenter-OpenCV</title>
+    <link rel="stylesheet" href="../static/styles.css" />
+  </head>
+  <body>
+    <div class="main">
+      <h1>Presenter-OpenCV</h1>
+      <div class="content">
+        Have you ever wanted to deliver presentations with just a wave of your
+        hand? Introducing Presenter-OpenCV - an innovative project that allows
+        you to control your presentations using simple hand gestures. Say
+        goodbye to fumbling with clickers or keyboards, and hello to a seamless
+        and interactive presentation experience!
+      </div>
+      <div class="upload">
+        <form method="post" enctype="multipart/form-data">
+          <!-- Hidden file input -->
+          <input type="file" name="file">
+          <button class="button-50" id="upload" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
