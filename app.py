@@ -182,7 +182,7 @@ def presentation():
 
         key = cv2.waitKey(1)
         if key == ord('q'):
-            shutil.rmtree("Presentation")
+            # shutil.rmtree("Presentation")
             break
 
     cap.release()
