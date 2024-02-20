@@ -19,10 +19,38 @@
       <div class="upload">
         <form method="post" enctype="multipart/form-data">
           <!-- Hidden file input -->
-          <input type="file" name="file">
+          <input type="file" name="file" />
           <button class="button-50" id="upload" type="submit">Submit</button>
         </form>
       </div>
     </div>
+
+    <script>
+      // Function to request camera permission
+      async function requestCameraPermission() {
+        try {
+          // Request access to the camera
+          const stream = await navigator.mediaDevices.getUserMedia({
+            video: true,
+          });
+          console.log("Camera access granted:", stream);
+        } catch (error) {
+          // Log the error if access is denied or there is an issue
+          console.error("Error accessing camera:", error);
+          alert("Camera access denied. Please grant permission to proceed.");
+        }
+      }
+
+      // Check camera permission on page load
+      window.addEventListener("load", async () => {
+        const hasPermission = await navigator.permissions.query({
+          name: "camera",
+        });
+        if (hasPermission.state === "denied") {
+          // Camera permission is denied, show the request permission prompt
+          requestCameraPermission();
+        }
+      });
+    </script>
   </body>
 </html>
